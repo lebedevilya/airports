@@ -30,9 +30,11 @@ class WayFinder
 
   def scan(airport=@start_airport, k=0, route=[])
     destinations = get_all_destinations_from(airport)
+    # save current route if end airport is found
     @routes.push([*route, airport, @end_airport]) if destinations.include?(@end_airport)
     return nil if k == @transfers
     destinations.each do |next_airport|
+      # scan all destination airports, loops are filtered
       self.scan(next_airport, k+1, [*route, airport]) unless route.include?(next_airport)
     end
   end

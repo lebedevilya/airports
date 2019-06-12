@@ -1,5 +1,4 @@
 class WayFinder
-  attr_reader :routes
 
   def initialize options
     @start_airport = options[:from]
@@ -11,8 +10,12 @@ class WayFinder
 
   def routes
     #pretty output
-    @routes.each do |route|
-      p route
+    unless @routes.empty?
+      @routes.each do |route|
+        p route
+      end
+    else
+      puts 'No possible routes found. Please check if airports are correct.'
     end
   end
 
@@ -35,7 +38,3 @@ class WayFinder
   end
 
 end
-
-#test = WayFinder.new('KZN', 1, 'ASF')
-#test.scan
-#p test.routes

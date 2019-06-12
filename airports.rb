@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'bundler/inline'
 gemfile do
   source 'https://rubygems.org'
@@ -15,7 +17,7 @@ class CLI < Thor
   option :path
   desc "scan", "scan all possible flights"
   long_desc <<-LONGDESC
-    `airpots scan` will print out all possible flights from airport one to airport two with <= required amount of transfers
+    `airpots scan` will print out all possible flights from airport A to airport B with <= required amount of transfers
  
     You can optionally specify path to routes file if you locally have one. Otherwise it will be downloaded automatically.\n
 
